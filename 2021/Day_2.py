@@ -1,5 +1,4 @@
 
-
 if __name__ == '__main__':
     with open('input/Day_2.txt') as f:
         steps = [line.strip().split(' ') for line in f]
@@ -10,13 +9,15 @@ if __name__ == '__main__':
             x += amount
             y += aim * amount
         elif direction == 'up':
-            # y -= amount
-            aim -= amount
+            # Part 1
+            y -= amount
+            # Part 2
+            # aim -= amount
         elif direction == 'down':
-            # y += amount
-            aim += amount
-        else:
-            print("Oops")
+            # Part 1
+            y += amount
+            # Part 2
+            # aim += amount
     print(x * y)
 
 
