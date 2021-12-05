@@ -4,6 +4,8 @@ if __name__ == '__main__':
     # Parse puzzle input
     with open('input/Day_5.txt') as f:
         tickets = [line.strip() for line in f]
+
+    # Part One
     seat_ids = []
     for ticket in tickets:
         # Find row number
@@ -26,3 +28,6 @@ if __name__ == '__main__':
 
         seat_ids.append(possible_rows[0] * 8 + possible_columns[0])
     print("Part 1:", max(seat_ids))
+
+    # Part Two
+    print("Part 2:", set(range(85, 890 + 1)) - set(seat_ids))
