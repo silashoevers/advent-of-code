@@ -1,4 +1,3 @@
-import numpy as np
 import itertools
 
 
@@ -20,6 +19,7 @@ def print_diagram(diagram):
                 print(val, end='')
         print('')
     print('')
+
 
 def mark(diagram, coordinates):
     # Check type of direction and base iterator on that
