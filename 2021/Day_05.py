@@ -52,7 +52,7 @@ def count_overlap(diagram):
 
 if __name__ == '__main__':
     # Parse input
-    with open('input/Day_5.txt') as f:
+    with open('input/Day_05.txt') as f:
         lines = [[tuple(map(int, tup.split(','))) for tup in line.split(' -> ')] for line in f.read().split('\n')]
 
     # Determine dimensions

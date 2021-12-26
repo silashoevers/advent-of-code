@@ -1,6 +1,6 @@
 
 if __name__ == '__main__':
-    with open('input/Day_3.txt') as f:
+    with open('input/Day_03.txt') as f:
         data = [line.strip() for line in f]
 
     # Part 1

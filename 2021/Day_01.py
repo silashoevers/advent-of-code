@@ -1,6 +1,6 @@
 if __name__ == '__main__':
     # Parse input file
-    with open('input/Day_1.txt') as f:
+    with open('input/Day_01.txt') as f:
         depths = [int(line) for line in f]
 
     # Part 1

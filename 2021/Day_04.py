@@ -30,7 +30,7 @@ def compute_score(board, final_number):
 
 if __name__ == '__main__':
     # Parse input
-    with open('input/Day_4.txt') as f:
+    with open('input/Day_04.txt') as f:
         lines = f.read().split('\n\n')
     random_numbers = map(int, lines[0].split(','))
 

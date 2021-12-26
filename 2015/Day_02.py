@@ -18,7 +18,7 @@ def volume(length, width, height):
 
 if __name__ == '__main__':
     presents = []
-    with open('input/2015_Day_2.txt', 'r') as f:
+    with open('input/Day_02.txt', 'r') as f:
         for line in f:
             dimensions = [int(dim.strip()) for dim in line.split('x')]
             presents.append(dimensions)

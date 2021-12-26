@@ -1,6 +1,6 @@
 
 if __name__ == '__main__':
-    with open('input/Day_2.txt') as f:
+    with open('input/Day_02.txt') as f:
         steps = [line.strip().split(' ') for line in f]
     x, y, aim = 0, 0, 0
     for (direction, amount) in steps:

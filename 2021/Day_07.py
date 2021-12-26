@@ -8,14 +8,15 @@ def solve(crabs, goal):
 
 def fuel_required(current, goal):
     if part_one:
-        return abs(current - goal)
+        return abs(current - goal)   bb
     else:
         # Inefficient but works
-        return sum(range(abs(current - goal) + 1))
+        true_dist = abs(current - goal)
+        return true_dist * (true_dist + 1) // 2
 
 
 if __name__ == '__main__':
     # Parse input
-    with open('input/Day_7.txt') as f:
+    with open('input/Day_07.txt') as f:
         crab_pos = list(map(int, f.read().split(',')))
     print(min([solve(crab_pos, pos) for pos in range(min(crab_pos), max(crab_pos) + 1)]))

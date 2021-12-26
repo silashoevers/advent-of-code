@@ -2,7 +2,7 @@ from collections import Counter
 
 if __name__ == '__main__':
     # Parse input
-    with open('input/Day_6.txt') as f:
+    with open('input/Day_06.txt') as f:
         timers = Counter([int(line) for line in f.read().split(',')])
 
     # Fill in missing counts
@@ -22,7 +22,7 @@ if __name__ == '__main__':
     print(sum(timers.values()))
 
     # Parse input
-    # with open('input/Day_6.txt') as f:
+    # with open('input/Day_06.txt') as f:
     #     timers = [int(line) for line in f.read().split(',')]
     #
     # zero_count = 0
