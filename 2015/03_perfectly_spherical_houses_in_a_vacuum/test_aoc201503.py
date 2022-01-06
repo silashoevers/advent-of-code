@@ -1,6 +1,6 @@
 import pathlib
 import pytest
-import aoc_template as aoc
+import aoc201503 as aoc
 
 PUZZLE_DIR = pathlib.Path(__file__).parent
 
@@ -17,19 +17,16 @@ def example2():
     return aoc.parse(puzzle_input)
 
 
-@pytest.mark.skip(reason="Not implemented")
 def test_parse_example1(example1):
     """Test that input is parsed properly"""
-    assert example1 == ...
+    assert example1 == "^>v<"
 
 
-@pytest.mark.skip(reason="Not implemented")
 def test_part1_example1(example1):
     """Test part 1 on example input"""
-    assert aoc.part1(example1) == ...
+    assert aoc.part1(example1) == 4
 
 
-@pytest.mark.skip(reason="Not implemented")
 def test_part2_example2(example2):
     """Test part 2 on example input"""
-    assert aoc.part2(example2) == ...
+    assert aoc.part2(example2) == 11

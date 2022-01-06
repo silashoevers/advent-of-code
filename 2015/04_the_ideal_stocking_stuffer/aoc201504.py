@@ -1,33 +1,29 @@
+import hashlib
 import pathlib
 import sys
 
 
 def parse(puzzle_input):
     """Parse input"""
-    return puzzle_input  # No sanitization required, directly iterable
+    return puzzle_input
 
 
 def part1(data):
     """Solve part 1"""
-    floor = 0
-    for instruction in data:
-        if instruction == "(":
-            floor += 1  # Go up a floor
-        elif instruction == ")":
-            floor -= 1  # Go down a floor
-    return floor
+    for postfix in range(2000000):  # Arbitrary range to replace infinite loop of brute forcing
+        message = data + str(postfix)
+        if hashlib.md5(message.encode()).hexdigest()[:5] == "00000":
+            return postfix
+    return None
 
 
 def part2(data):
     """Solve part 2"""
-    floor = 0
-    for index, instruction in enumerate(data):
-        if instruction == "(":
-            floor += 1
-        elif instruction == ")":
-            floor -= 1
-        if floor == -1:
-            return index + 1  # Index started at 1
+    for postfix in range(20000000):
+        message = data + str(postfix)
+        if hashlib.md5(message.encode()).hexdigest()[:6] == "000000":
+            return postfix
+    return None
 
 
 def solve(puzzle_input):
