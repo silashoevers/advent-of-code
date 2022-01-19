@@ -8,7 +8,7 @@ def solve(crabs, goal):
 
 def fuel_required(current, goal):
     if part_one:
-        return abs(current - goal)   bb
+        return abs(current - goal)
     else:
         # Inefficient but works
         true_dist = abs(current - goal)
