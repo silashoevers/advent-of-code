@@ -7,3 +7,9 @@ My language of choice is Python because I am the most comfortable with it and it
 ## Repository structure
 A lot of inspiration has been taken from this article on Real Python: [https://realpython.com/python-advent-of-code/](https://realpython.com/python-advent-of-code/)
 It has inspired me to make use of a TDD approach next to providing me some useful libraries to use
+
+## Naming scheme
+At the root folders can be found for solutions per year.
+Individual solutions are seperated by folder as well in the format `DD_name_of_challenge`.
+The filename of the actual solution is `aocYYYYDD.py` and the test is prefixed with `test_`.
+Example and actual input are put in files named `exampleX.txt` and `input.txt` respectively.
