@@ -14,6 +14,29 @@ def parse_wire_jump(jump):
 
 def part1(data):
     """Solve part 1"""
+    wire1, wire2 = data
+    cross_sections = compute_covered(wire1).intersection(compute_covered(wire2))
+    return min(sum(map(abs, cross_section)) for cross_section in cross_sections)
+
+
+def compute_covered(wire_path) -> set:
+    location = (0, 0)
+    covered = set()  # Set of coordinates covered by wire
+    for direction, distance in wire_path:
+        if direction == 'R':
+            for _ in range(distance):
+                covered.add(location := (location[0] + 1, location[1]))
+        elif direction == 'U':
+            for _ in range(distance):
+                covered.add(location := (location[0], location[1] + 1))
+        elif direction == 'L':
+            for _ in range(distance):
+                covered.add(location := (location[0] - 1, location[1]))
+        elif direction == 'D':
+            for _ in range(distance):
+                covered.add(location := (location[0], location[1] - 1))
+    return covered
+
 
 
 def part2(data):
