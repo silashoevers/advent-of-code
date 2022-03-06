@@ -4,6 +4,12 @@ import sys
 
 def parse(puzzle_input):
     """Parse input"""
+    return tuple([parse_wire_jump(jump) for jump in wire.split(',')] for wire in puzzle_input.split('\n'))
+
+
+def parse_wire_jump(jump):
+    """Turns 'R100' in ('R', 100)"""
+    return jump[0], int(jump[1:])
 
 
 def part1(data):
