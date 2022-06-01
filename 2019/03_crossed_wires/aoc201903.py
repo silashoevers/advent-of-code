@@ -38,9 +38,9 @@ def compute_covered(wire_path) -> set:
     return covered
 
 
-
 def part2(data):
     """Solve part 2"""
+
 
 
 def solve(puzzle_input):
