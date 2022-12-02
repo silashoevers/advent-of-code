@@ -15,7 +15,7 @@ Date: 28-11-2022
 
 
 # TODO: Fix documentation to uphold Google standard
-# TODO: Fix temporary hacks regarding parsing (both in _get_input and _get_test)
+# TODO: Properly implement unit testing
 class Day:
     def __init__(self, year: int, day_nr: int, description: str, debug=False, expected_a=None, expected_b=None):
         """
@@ -88,9 +88,9 @@ class Day:
         Compares the actual answers with expected answers as provided in the constructor
         """
         if self.expected_a is not None and answer_a is not None:
-            assert self.expected_a == answer_a, f"\tPart A: Expected {self.expected_a} but got {answer_a}"
+            assert self.expected_a == answer_a, f"Part A: Expected {self.expected_a} but got {answer_a}"
         if self.expected_b is not None and answer_b is not None:
-            assert self.expected_b == answer_b, f"\tPart B: Expected {self.expected_b} but got {answer_b}"
+            assert self.expected_b == answer_b, f"Part B: Expected {self.expected_b} but got {answer_b}"
         print("Test(s) passed")
 
     def __str__(self) -> str:
