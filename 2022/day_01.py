@@ -3,11 +3,11 @@ from day_base import Day
 
 class Day1(Day):
     def __init__(self):
-        super().__init__(2022, 1, "Calorie Counting", expected_a=24000, expected_b=45000)
+        super().__init__(2022, 1, "Calorie Counting", debug=True, expected_a=24000, expected_b=45000)
 
-    # TODO: Move summing up total calories into this function
     def parse(self, puzzle_input):
-        individual_calories = [list(map(int, calories_per_elf.split('\n'))) for calories_per_elf in puzzle_input.split('\n\n')[:-1]]
+        individual_calories = [list(map(int, calories_per_elf.split('\n')))
+                               for calories_per_elf in puzzle_input.split('\n\n')]
         return list(map(sum, individual_calories))
 
     def part_a(self, parsed_puzzle_input):
@@ -19,5 +19,4 @@ class Day1(Day):
 
 
 if __name__ == '__main__':
-    day = Day1()
-    day.run()
+    Day1().run()
