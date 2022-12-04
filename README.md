@@ -14,4 +14,4 @@ Next to that I believe I can produce the most readable code with this language.
 
 Input files are pulled from the AoC website and cached under `/input/YYYY/day_DD.txt`
 
-Examples given have to be manually put in a test files under `/test/YYYY/day_DD.txt`
+Examples given have to be manually put in a test file under `/test/YYYY/day_DD.txt`
