@@ -15,7 +15,8 @@ Date: 28-11-2022
 
 
 # TODO: Fix documentation to uphold Google standard
-# TODO: Properly implement unit testing
+# TODO: Implement unit testing e.g. support multiple test cases
+# TODO: Redo fancy formatting of logging and errors
 class Day:
     def __init__(self, year: int, day_nr: int, description: str, debug=False, expected_a=None, expected_b=None):
         """
@@ -29,72 +30,8 @@ class Day:
         self.expected_b = expected_b
         self.debug = debug
 
-    def part_a(self, parsed_puzzle_input) -> int:
-        """
-        Calculates the solution for the first part of the days puzzle
-        """
-        raise NotImplementedError("Part A has not yet been implemented")
-
-    def part_b(self, parsed_puzzle_input) -> int:
-        """
-        Calculates the solution for the second part of the days puzzle
-        """
-        raise NotImplementedError("Part B has not yet been implemented")
-
-    def parse(self, puzzle_input):
-        """
-        Reduce the pure puzzle input to a sensible input for the specific puzzle
-        """
-        raise NotImplementedError("Parsing has not yet been implemented")
-
-    def run(self):
-        """
-        Executes each part of the day and measures the time it takes to execute it.
-        """
-        print(self)
-
-        if self.debug:
-            puzzle_input = self._get_test()
-            # TODO: Run test
-        else:
-            puzzle_input = self._get_input()
-
-        parsed_puzzle_input = self.parse(puzzle_input)
-
-        answer_a = None
-        answer_b = None
-        try:
-            before = time.time()
-            answer_a = self.part_a(parsed_puzzle_input)
-            after = time.time()
-            print(f'\tPart A: {answer_a} (computation time: {(after - before) * 1000:.5f} ms)')
-        except NotImplementedError as error:
-            print("\t", error)
-        try:
-            before = time.time()
-            answer_b = self.part_b(parsed_puzzle_input)
-            after = time.time()
-            print(f'\tPart B: {answer_b} (computation time: {(after - before) * 1000:.5f} ms)')
-        except NotImplementedError as error:
-            print("\t", error)
-        print()
-
-        # If we're in debug mode, check if the answers are as expected
-        if self.debug:
-            self._test(answer_a, answer_b)
-
-    def _test(self, answer_a, answer_b) -> None:
-        """
-        Compares the actual answers with expected answers as provided in the constructor
-        """
-        if self.expected_a is not None and answer_a is not None:
-            assert self.expected_a == answer_a, f"Part A: Expected {self.expected_a} but got {answer_a}"
-        if self.expected_b is not None and answer_b is not None:
-            assert self.expected_b == answer_b, f"Part B: Expected {self.expected_b} but got {answer_b}"
-        print("Test(s) passed")
-
     def __str__(self) -> str:
-        return f"Day {self.day_nr} \"{self.description}\""
+        return f"--- Day {self.day_nr}: {self.description} ---"
 
     def _get_test(self):
         """
@@ -106,7 +43,6 @@ class Day:
         except FileNotFoundError:
             raise FileNotFoundError("No test file seems to be provided")
 
-    # TODO: Remove trailing whitespace at the end of the file
     def _get_input(self):
         """
         Grabs the input to be used. If the input can not be found in the cache, pull it from the AoC website
@@ -128,10 +64,73 @@ class Day:
         # Make a request to the AoC website for our puzzle input
         url = f"https://adventofcode.com/{self.year}/day/{self.day_nr}/input"
         request = requests.get(url, cookies={'session': session_key})
-        request.close()
 
         # Cache the input for later use
-        lines = request.text
+        lines = request.text.strip()
         with open(input_path, 'x') as input_file:
             input_file.write(lines)
         return lines
+
+    def _test(self, answer_a, answer_b) -> None:
+        """
+        Compares the actual answers with expected answers as provided in the constructor
+        """
+        if self.expected_a is not None and answer_a is not None:
+            assert self.expected_a == answer_a, f"Part A: Expected {self.expected_a} but got {answer_a}"
+        if self.expected_b is not None and answer_b is not None:
+            assert self.expected_b == answer_b, f"Part B: Expected {self.expected_b} but got {answer_b}"
+        # TODO: Don't say tests have passed when they actually have not
+        print("Test(s) passed")
+
+    def part_a(self, parsed_puzzle_input) -> int:
+        """
+        Calculates the solution for the first part of the days puzzle
+        """
+        raise NotImplementedError("Part A has not yet been implemented")
+
+    def part_b(self, parsed_puzzle_input) -> int:
+        """
+        Calculates the solution for the second part of the days puzzle
+        """
+        raise NotImplementedError("Part B has not yet been implemented")
+
+    def parse(self, puzzle_input):
+        """
+        Reduce the raw puzzle input to something sensible to be used by both parts
+        """
+        raise NotImplementedError("Parsing has not yet been implemented")
+
+    def run(self):
+        """
+        Executes each part of the day and measures the time it takes to execute it.
+        """
+        print(self)
+
+        # Based on the debug flag we take the provided example or actual input
+        if self.debug:
+            puzzle_input = self._get_test()
+        else:
+            puzzle_input = self._get_input()
+
+        parsed_puzzle_input = self.parse(puzzle_input)
+
+        answer_a = None
+        answer_b = None
+        try:
+            before = time.time()
+            answer_a = self.part_a(parsed_puzzle_input)
+            after = time.time()
+            print(f'Part A: {answer_a} (computation time: {(after - before) * 1000:.5f} ms)')
+        except NotImplementedError as error:
+            print(error)
+        try:
+            before = time.time()
+            answer_b = self.part_b(parsed_puzzle_input)
+            after = time.time()
+            print(f'Part B: {answer_b} (computation time: {(after - before) * 1000:.5f} ms)')
+        except NotImplementedError as error:
+            print(error)
+
+        # If we're in debug mode, check if the answers are as expected
+        if self.debug:
+            self._test(answer_a, answer_b)
