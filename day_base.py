@@ -123,6 +123,9 @@ class Day:
             print(f'Part A: {answer_a} (computation time: {(after - before) * 1000:.5f} ms)')
         except NotImplementedError as error:
             print(error)
+
+        # TODO: Copy parsed results to prevent us from having to parse twice
+        parsed_puzzle_input = self.parse(puzzle_input)
         try:
             before = time.time()
             answer_b = self.part_b(parsed_puzzle_input)
