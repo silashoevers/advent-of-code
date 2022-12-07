@@ -32,7 +32,7 @@ class Day4(Day):
     def part_a(self, parsed_puzzle_input) -> int:
         total_full_overlapping_sections = 0
         for sections_covered_by_a, sections_covered_by_b in parsed_puzzle_input:
-            shared_sections = sections_covered_by_a.intersection(sections_covered_by_b)
+            shared_sections = sections_covered_by_a & sections_covered_by_b
             if shared_sections == sections_covered_by_a or shared_sections == sections_covered_by_b:
                 total_full_overlapping_sections += 1
         return total_full_overlapping_sections
@@ -40,7 +40,7 @@ class Day4(Day):
     def part_b(self, parsed_puzzle_input) -> int:
         total = 0
         for range_a, range_b in parsed_puzzle_input:
-            shared_section = range_a.intersection(range_b)
+            shared_section = range_a & range_b
             if len(shared_section):
                 total += 1
         return total
