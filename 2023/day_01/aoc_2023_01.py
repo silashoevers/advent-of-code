@@ -2,7 +2,9 @@ import regex as re  # To enable overlapped flag on re.findall
 
 # Parse puzzle input
 with open("input.txt") as f:
-    puzzle_input = list(map(lambda l: l.strip(), f.read().splitlines()))
+    puzzle_input = f.read().splitlines()
+
+print(puzzle_input)
 
 # Part 1
 # Remove letters from strings
@@ -16,7 +18,7 @@ for line in small_case_removed:
 
 # Parse puzzle input (again)
 with open("input.txt") as f:
-    puzzle_input = list(map(lambda l: l.strip(), f.read().splitlines()))
+    puzzle_input = f.read().splitlines()
 
 # Part 2
 str_to_int_replace_dict = {
