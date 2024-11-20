@@ -1,2 +1,8 @@
-*input*.txt
+# PyCharm
+.idea
+
+# AoC
+input.txt
+
+# Pytnon
 venv
