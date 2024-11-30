@@ -3,7 +3,7 @@ from aocd import get_data
 def parse(puzzle_input):
     """Parse input."""
     elf_split = puzzle_input.split('\n\n')
-    return [list(map(lambda item: int(item), elf.split())) for elf in elf_split]
+    return [list(map(int, elf.split())) for elf in elf_split]
 
 def part1(data):
     """Solve part 1."""
