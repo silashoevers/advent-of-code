@@ -1,0 +1,7 @@
+year:
+  type: str
+  help: For what year are you solving for?
+
+day:
+  type: str
+  help: For what day are you solving for? Day 1 should be written as 01.

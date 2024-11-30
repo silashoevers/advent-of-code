@@ -1,1 +1,4 @@
 regex
+advent-of-code-data
+pytest
+copier
