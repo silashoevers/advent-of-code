@@ -18,9 +18,9 @@ def solve(puzzle_input):
     return solution1, solution2
 
 if __name__ == "__main__":
-    year= "{{year}}"
-    day= "{{day}}"
+    year= {{year}}
+    day= int("{{day}}")  # TODO: Fix this cursed mess
     print(f"Solving for year {year}, day {day}:")
-    puzzle_input = get_data(year=int(year), day=int(day))
+    puzzle_input = get_data(year=year, day=day)
     solutions = solve(puzzle_input)
     print("\n".join(str(solution) for solution in solutions))

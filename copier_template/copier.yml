@@ -1,7 +1,8 @@
 year:
-  type: str
-  help: For what year are you solving for?
+  type: int
+  help: For what year are you solving?
+  validator: "{% if year < 2015 or year > 2024 %}That is an invalid year{% endif %}"
 
 day:
   type: str
-  help: For what day are you solving for? Day 1 should be written as 01.
+  help: For what day are you solving? Remember to pad with a zero if needed (5 should be 05)

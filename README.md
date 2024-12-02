@@ -18,3 +18,7 @@ ask you for what year and day you want to generate the solution and test files.
 
 Example code is expected to be found in files `example1.txt` and up. Implement your solutions in the appropriate functions 
 and enable the relevant tests.
+
+## TODO
+- [ ] Make copier ask for day in integer form and perform zero padding somewhere down the line
+- [ ] For copier, make default current date
