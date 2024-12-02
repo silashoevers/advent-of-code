@@ -1,0 +1,9 @@
+name: advent-of-code
+dependencies:
+  - python=3.12
+  - numpy
+  - pytest
+  - pip
+  - pip:
+    - copier
+    - advent-of-code-data
