@@ -21,4 +21,8 @@ and enable the relevant tests.
 
 ## TODO
 - [ ] Make copier ask for day in integer form and perform zero padding somewhere down the line
-- [ ] For copier, make default current date
+- [ ] For copier, make current date the default
+- [ ] Rewrite template to be class based
+  - [ ] Include timing of execution
+  - [ ] Rewrite existing code to be used with classes
+- [ ] Rewrite existing solutions using regex & groups
