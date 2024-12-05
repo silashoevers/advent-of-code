@@ -7,3 +7,4 @@ dependencies:
   - pip:
     - copier
     - advent-of-code-data
+    - regex
