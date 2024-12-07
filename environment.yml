@@ -2,6 +2,7 @@ name: advent-of-code
 dependencies:
   - python=3.12
   - numpy
+  - pandas
   - pytest
   - pip
   - pip:
