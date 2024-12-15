@@ -46,6 +46,7 @@ def find_MAS_or_SAM(array):
 
 def part2(data):
     """Solve part 2."""
+    # TODO: Rewrite using index iteration over center square
     height, width = data.shape
 
     left_right_matches = find_MAS_or_SAM(data)

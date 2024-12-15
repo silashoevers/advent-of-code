@@ -21,6 +21,8 @@ and enable the relevant tests.
 
 ## TODO
 - [ ] Make copier ask for day in integer form and perform zero padding somewhere down the line
+- [ ] Make copier instantiate years and days as packages
+  - [ ] Reconsider having folders for years start with number. This make imports impossible.
 - [ ] For copier, make current date the default
 - [ ] Rewrite template to be class based
   - [ ] Include timing of execution
