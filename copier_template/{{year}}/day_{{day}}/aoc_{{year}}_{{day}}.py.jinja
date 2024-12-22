@@ -22,5 +22,6 @@ if __name__ == "__main__":
     day = int("{{day}}")
     print(f"Solving for year {year}, day {day}:")
     puzzle_input = get_data(year=year, day=day)
-    solutions = solve(puzzle_input)
-    print("\n".join(str(solution) for solution in solutions))
+    solution_part_1, solution_part_2 = solve(puzzle_input)
+    print(f"Part 1: {solution_part_1}")
+    print(f"Part 2: {solution_part_2}")
