@@ -3,6 +3,12 @@ year:
   help: For what year are you solving?
   validator: "{% if year < 2015 or year > 2024 %}That is an invalid year{% endif %}"
 
+day_int:
+  type: int
+  help: For what day are you solving?
+  validator: "{% if not 1 <= day_int <= 25 %}Day must be between 1 and 25{% endif %}"
+
 day:
   type: str
-  help: For what day are you solving? Remember to pad with a zero if needed (5 should be 05)
+  default: "{{ '{:0>2}'.format(day_int) }}"  # Prepend single digit days with a 0 (7 -> 07, 11 -> 11)
+  when: false  # See: https://copier.readthedocs.io/en/stable/faq/#how-to-create-computed-values
