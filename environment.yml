@@ -9,3 +9,4 @@ dependencies:
     - copier
     - advent-of-code-data
     - regex
+    - tqdm

@@ -1,7 +1,11 @@
 from aocd import get_data
+import re
 
 def parse(puzzle_input):
     """Parse input."""
+    pattern = re.compile(r'[0-9]+')
+
+
     elf_split = puzzle_input.split('\n\n')
     return [list(map(int, elf.split())) for elf in elf_split]
 
