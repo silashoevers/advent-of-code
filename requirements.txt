@@ -1,0 +1,8 @@
+numpy
+pandas
+pytest
+copier
+advent-of-code-data
+regex
+tqdm
+parse

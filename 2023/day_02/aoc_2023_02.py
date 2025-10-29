@@ -16,7 +16,7 @@ blue_parser = parse.compile("{:d} blue")
 gameID_sum = 0
 for game in puzzle_input:
     possible = True
-    gameID, reveals = game_parser.parse(game).fixed
+    gameID, reveals = game_parser.parse_puzzle_input(game).fixed
     for reveal in reveals.split("; "):
         red = red_parser.search(reveal)
         if red is not None and red[0] > 12:
@@ -37,7 +37,7 @@ for game in puzzle_input:
     highest_red = 0
     highest_green = 0
     highest_blue = 0
-    gameID, reveals = game_parser.parse(game).fixed
+    gameID, reveals = game_parser.parse_puzzle_input(game).fixed
     for reveal in reveals.split("; "):
         red = red_parser.search(reveal)
         if red is not None and red[0] > highest_red:

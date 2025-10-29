@@ -1,13 +1,8 @@
 # My Advent of Code solutions
-Towards the end of the year, I brush up my coding skills with [Advent of Code](https://adventofcode.com/) puzzles.
-I tend to wake up early for the first few challenges but after a week or so, life catches up. My recent goal has become 
-to at least finish one complete year of puzzles.
+I like to brush up my coding skills with [Advent of Code](https://adventofcode.com/) puzzles.
 
 ## HOWTO run individual solutions
-I make use of the [Advent of Code Data library](https://pypi.org/project/advent-of-code-data/), 
-which can pull in puzzle data. This also makes is easy for you to run my solutions on your puzzle data,
-allowing you to verify my solutions without me exposing my puzzle input ([See the creators statement on this](https://adventofcode.com/2024/about#faq_copying)).
-All you have to do is to export your session token with your preferred method.
+I make use of the [Advent of Code Data library](https://pypi.org/project/advent-of-code-data/), which can cache puzzle data.
 
 ## HOWTO Solve for a new day
 Inspired by the [Real Python article](https://realpython.com/python-advent-of-code/), I started to use templates 
