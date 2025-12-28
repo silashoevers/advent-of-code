@@ -10,6 +10,8 @@ class Item:
         self.worry_level = starting_worry_level
 
 class Monkey:
+    exponential_operation = compile('old*old','<string>','eval')
+
     template = "Monkey {}:\n" \
                "  Starting items: {items:parse_starting_worry_levels}\n" \
                "  Operation: new = {operation:parse_operation}\n" \
@@ -25,13 +27,30 @@ class Monkey:
         self.if_false = if_false
         self.num_inspected = 0
 
-    def inspect_all_items(self, all_monkeys):
+    def inspect_all_items_part_1(self, all_monkeys):
         while self.items:
             # Inspect an individual item and throw it to the appropriate other monkey
             inspected_item = self.items.popleft()
             old = inspected_item.worry_level
             inspected_item.worry_level = eval(self.operation)
             inspected_item.worry_level //= 3
+            if not inspected_item.worry_level % self.test:
+                all_monkeys[self.if_true].items.append(inspected_item)
+            else:
+                all_monkeys[self.if_false].items.append(inspected_item)
+            self.num_inspected += 1
+        return
+
+    def inspect_all_items_part_2(self, all_monkeys):
+        while self.items:
+            # Inspect an individual item and throw it to the appropriate other monkey
+            inspected_item = self.items.popleft()
+            old = inspected_item.worry_level
+
+            # Skip updating worry level if operation = old * old
+            if not Monkey.exponential_operation == self.operation:
+                inspected_item.worry_level = eval(self.operation)
+
             if not inspected_item.worry_level % self.test:
                 all_monkeys[self.if_true].items.append(inspected_item)
             else:
@@ -66,7 +85,7 @@ def part1(data):
     for _ in range(max_num_rounds):
         # Perform one round: Let each monkey in order inspect all its items
         for monkey in monkeys:
-            monkey.inspect_all_items(monkeys)
+            monkey.inspect_all_items_part_1(monkeys)
 
     # Find the two most active monkeys
     sorted_num_inspect = sorted([monkey.num_inspected for monkey in monkeys], reverse=True)
@@ -81,7 +100,7 @@ def part2(data):
     for _ in range(max_num_rounds):
         # Perform one round: Let each monkey in order inspect all its items
         for monkey in monkeys:
-            monkey.inspect_all_items(monkeys)
+            monkey.inspect_all_items_part_2(monkeys)
 
     # Find the two most active monkeys
     sorted_num_inspect = sorted([monkey.num_inspected for monkey in monkeys], reverse=True)

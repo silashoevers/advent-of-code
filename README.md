@@ -23,3 +23,6 @@ and enable the relevant tests.
   - [ ] Include timing of execution
   - [ ] Rewrite existing code to be used with classes
 - [ ] Rewrite existing solutions using regex & groups
+- [ ] Improve testing solutions
+  - [ ] Align naming of test files with other files
+  - [ ] Make it easier to add multiple different examples

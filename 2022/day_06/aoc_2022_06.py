@@ -1,0 +1,37 @@
+from aocd import get_data
+import time
+
+def parse_puzzle_input(puzzle_input):
+    """Parse input."""
+
+def part1(data):
+    """Solve part 1."""
+
+def part2(data):
+    """Solve part 2."""
+
+def solve(puzzle_input):
+    """Solve the puzzle for the given input."""
+    # Parse puzzle input. Same input shared by part 1 and 2 solvers
+    data = parse_puzzle_input(puzzle_input)
+
+    # Part 1
+    before = time.time()
+    solution1 = part1(data)
+    after = time.time()
+    print(f"## Part 1\n{solution1}\n{after - before}s\n")
+
+    # Part 2
+    before = time.time()
+    solution2 = part2(data)
+    after = time.time()
+    print(f"## Part 2\n{solution2}\n{after - before}s")
+
+    return
+
+if __name__ == "__main__":
+    year = 2022
+    day = 6
+    print(f"# Year {year}, day {day}")
+    puzzle_input = get_data(year=year, day=day)
+    solve(puzzle_input)
